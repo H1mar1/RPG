@@ -42,7 +42,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.Setup(player);
         enemyUnit.Setup(enemy);
 
-        yield return battleDialog.TypeDialog($"{enemy.Base.Name}が現れた！\nどうする？");
+        yield return battleDialog.TypeDialog($"{enemy.Base.Name}があられた！\nどうする？");
         ActionSelection();
     }
 
@@ -73,11 +73,11 @@ public class BattleSystem : MonoBehaviour
         yield return RunMove(playerMove, playerUnit, enemyUnit);
         if (state == State.BattleOver) 
         {
-            yield return battleDialog.TypeDialog($"{enemyUnit.Battler.Base.Name}を倒した", auto: false);
+            yield return battleDialog.TypeDialog($"{enemyUnit.Battler.Base.Name}をたおした", auto: false);
             //レベルアップ
             //倒した敵から経験値をえる
             playerUnit.Battler.hasExp += enemyUnit.Battler.Base.Exp;
-            yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}は経験値{enemyUnit.Battler.Base.Exp}を得た", auto: false);
+            yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}はけいけんち{enemyUnit.Battler.Base.Exp}をえた", auto: false);
             //一定以上経験値がたまると、レベルが上がる
             if (playerUnit.Battler.IsLevelUp())
             {
@@ -87,7 +87,7 @@ public class BattleSystem : MonoBehaviour
                 Move learnedMove = playerUnit.Battler.LearnedMove();
                 if(learnedMove != null)
                 {
-                    yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}は{learnedMove.Base.Name}を覚えた！", auto: false);
+                    yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}は{learnedMove.Base.Name}をおぼえた！", auto: false);
                 }
             }
             BattleOver();
@@ -100,7 +100,7 @@ public class BattleSystem : MonoBehaviour
         yield return RunMove(enemyMove, enemyUnit, playerUnit);
         if(state == State.BattleOver)
         {
-            yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}は倒れてしまった");
+            yield return battleDialog.TypeDialog($"{playerUnit.Battler.Base.Name}はたおれてしまった");
             BattleOver();
             yield break;
         }
