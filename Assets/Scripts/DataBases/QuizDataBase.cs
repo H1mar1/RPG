@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuizDatabase", menuName = "Quiz/Database")]
 
-public class QuizDataBase : MonoBehaviour
+public class QuizDataBase : ScriptableObject
 {
     public QuizQuestion[] questions;
 }
