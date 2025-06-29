@@ -238,13 +238,14 @@ GameObject:
   - component: {fileID: 62395614}
   - component: {fileID: 62395613}
   - component: {fileID: 62395612}
+  - component: {fileID: 62395615}
   m_Layer: 0
   m_Name: QuestionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &62395611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -318,6 +319,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62395610}
   m_CullTransparentMesh: 1
+--- !u!114 &62395615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62395610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c420c551c66fd0b4bb2de3a8010d6644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizManager: {fileID: 1839473897}
 --- !u!1 &153536644
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,10 +364,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1227713576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -24}
+  m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153536646
 MonoBehaviour:
@@ -470,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &167036757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +501,8 @@ MonoBehaviour:
   actionSelectionUI: {fileID: 2132959760}
   moveSelectionUI: {fileID: 1516087956}
   battleDialog: {fileID: 1327422757}
+  quiestionPanelUI: {fileID: 62395615}
+  quizManager: {fileID: 1839473897}
   playerUnit: {fileID: 1847993156}
   enemyUnit: {fileID: 1377029361}
 --- !u!4 &167036758
@@ -1809,15 +1825,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
+  m_sharedMaterial: {fileID: 7921494894486198458, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1919,10 +1935,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1331540329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 148.7, y: -109.46}
+  m_SizeDelta: {x: 297.4, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491370422
 MonoBehaviour:
@@ -2510,8 +2526,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter text...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
+  m_sharedMaterial: {fileID: 7921494894486198458, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2957,10 +2973,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1227713576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -120}
+  m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261349337
 MonoBehaviour:
@@ -19656,13 +19672,13 @@ MonoBehaviour:
       m_Calls: []
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 1, g: 1, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -19875,9 +19891,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c5200bd0be309468f55a7c2be63553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuizDataBase: {fileID: 0}
+  QuizDataBase: {fileID: 11400000, guid: 013c8e943657ee744aaee919ce0d0c7b, type: 2}
   questionText: {fileID: 2047011075}
   answerInputField: {fileID: 1582152305}
+  quiestionPanelUI: {fileID: 62395615}
+  maruImage: {fileID: 0}
+  batuImage: {fileID: 0}
+  _isAnswered: 0
 --- !u!4 &1839473898
 Transform:
   m_ObjectHideFlags: 0
@@ -20019,10 +20039,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1227713576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -72}
+  m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934229751
 MonoBehaviour:
@@ -20202,10 +20222,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1331540329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 148.7, y: -24.5}
+  m_SizeDelta: {x: 297.4, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973233452
 MonoBehaviour:
@@ -20511,7 +20531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25CB\u25CB\u770C\u770C\u5E81\u6240\u5728\u5730\u306F\uFF1F"
+  m_text: "\u25CB\u25CB\u770C\u5E81\u6240\u5728\u5730\u306F\uFF1F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}
   m_sharedMaterial: {fileID: 7921494894486198458, guid: eb868bdecaac2ad428ff7c1858231f59, type: 2}

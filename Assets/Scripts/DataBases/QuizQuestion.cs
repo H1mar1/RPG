@@ -9,5 +9,5 @@ public class QuizQuestion : ScriptableObject
     [Header("–â‘è•¶")]
     public string questionText;
     [Header("“š‚¦")]
-    public string questionAns;
+    public string[] questionAns;
 }

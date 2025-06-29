@@ -9,22 +9,30 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] ActionSelectionUI actionSelectionUI;
     [SerializeField]MoveSelectionUI moveSelectionUI;
     [SerializeField]BattleDialog battleDialog;
+    [SerializeField]QuiestionPanelUI quiestionPanelUI;
+    [SerializeField]QuizManager quizManager;
 
     [SerializeField] BattleUnit  playerUnit;
     [SerializeField] BattleUnit enemyUnit;
 
     public UnityAction OnBattleOver;
+   
+
+
     
     enum State
     {
         Start,
         ActionSlection,
         MoveSelection,
+        QuizSelection,
         RunTurns,
         BattleOver,
     }
 
     State state;
+
+   
 
     public void BattleStart(Battler player, Battler enemy)
     {
@@ -66,10 +74,20 @@ public class BattleSystem : MonoBehaviour
         moveSelectionUI.Open();
     }
 
+    void QuizSelection()
+    {
+        state = State.QuizSelection;
+        quiestionPanelUI.Open();
+    }
+
     IEnumerator RunTurns()
     {
-        state=State.RunTurns;
+        //bool result = false;
+        state = State.RunTurns;
         Move playerMove = playerUnit.Battler.Moves[moveSelectionUI.SelectedIndex];
+        //quizManager.GetIsAnswered(result);
+        //Debug.Log(result);
+
         yield return RunMove(playerMove, playerUnit, enemyUnit);
         if (state == State.BattleOver) 
         {
@@ -161,15 +179,19 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-           //ãZÇé¿çsÇ∑ÇÈ
-           actionSelectionUI.Close();
-           moveSelectionUI.Close();
-           StartCoroutine(RunTurns()); 
+            //ãZÇé¿çsÇ∑ÇÈ
+            actionSelectionUI.Close();
+            moveSelectionUI.Close();
+            quiestionPanelUI.Open();
+
+            StartCoroutine(RunTurns()); 
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
             moveSelectionUI.Close();
             ActionSelection();
         }
+
+        
     }
 }
